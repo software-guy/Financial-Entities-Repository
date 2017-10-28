@@ -5,4 +5,4 @@ This repository houses programs that pertain to an end goal for me. The purpose 
 financial_Debtees will have a user enter entities to which financial debt is owed to. The content is stored in a file for later use.
 
 
-My
+total_Debt_Owed is going to use the file/list to prompt for debt to be paid.
