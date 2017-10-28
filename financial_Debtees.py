@@ -1,14 +1,13 @@
+# -*- coding: utf-8 -*-
 """
 Author:        Emil Hozan
 Date Created:  10-09-2017
-Date Modified: 10-17-2017
+Date Modified: 10-27-2017
 
 
 Purpose:
+    Prompts user(s) to input entities to which monies are owed. It is then saved in a file for use later.
 
-This is a running program that takes user input regarding entities to which money is owed to. Entered information is stored into a list.
-
-They are then prompted to enter the total amount owed to each respective entity. This information is pulled from the previously created list, then stored in a dictionary where each entity their associated owed amount.
 """
 
 # Full list of debtees
@@ -29,8 +28,9 @@ print("==================================================") # Formatting for now
 # Greet the user
 print("-------------INTRODUCTION AND PURPOSE-------------")
 print()
-print("This program is going to prompt you to first start by entering an entity to which monies are owed.")
-print()
+print("This program prompts you to enter an entity \n" +
+      "to which monies are owed. Information gathered \n" + 
+      "will be stored in a file for later use.")
 print("==================================================")
 
 
@@ -57,14 +57,41 @@ while True: # Marking the while loop as True until user exits the program
   m.append(a) # Add initial entry to list
     
   print(m) # Print the item(s) added until now
-  print("") # Spacing
+  print() # Spacing
   print("==================================================") # Formatting
+
+
+
+""" Opens and creates the filename below and writes the contents gathered until now """
+file_lod = open('list_Of_Debtees.txt', 'w') # file_lod = "handler" of copying file
+
+for line in m: # for each entry in list: m
+    file_lod.write(line) # write the entry
+    file_lod.write("\n") # then create a new line
+    
+file_lod.close() # close the file
+
+
 
 print("==================================================") # Formatting
 print("These are your provided entries: ")
 print() # Spacing
-print(m)
+print(m) # print the list: m one final time
 print() # Spacing
 print("==================================================")
-print ("Thank you for your input, until next time")
+print("Here is the output of the saved file: ")
+print('It is stored in the current directory as \"list_Of_Debtees.txt\" ')
+print()
+
+file_lod_ro = open('list_Of_Debtees.txt', 'r') # file_lod_ro = "handler" of the open file in read only mode
+
+for line in file_lod_ro:
+    print(line, end="") # print each line and only return carriage to next line 1x
+    
+file_lod_ro.close() # close the file
+
+
+print()
+print("==================================================")
+print ("Thank you for your input, until next time!")
 print() # Spacing
